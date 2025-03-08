@@ -3,9 +3,25 @@
 <div class="bg-primary m-1 p-1 text-white">
     <h4>Category Listing</h4>
 </div>
-<ul>
-    @foreach (Category category in Model)
-    {
-        <li>@(category.CategoryName + " - " + category.Description)</li>
-    }
-</ul>
+@if (Model.Count() == 0)
+{
+    <p>There are no categories</p>
+}
+else
+{
+    <div class="list-group">
+        @foreach (Category category in Model)
+        {
+            <a class="list-group-item list-group-item-action flex-column align-items-start" asp-controller="Home" asp-action="CategoryDetail"
+                    asp-route-id="@category.CategoryId">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">@category.CategoryName</h5>
+                    @* <a asp-controller="Home" asp-action="DeleteCateogry" asp-route-id="@category.CategoryId">Delete</a> *@
+                </div>
+                <small>@category.Description</small>
+            </a>
+        }
+    </div>
+}
+<hr />
+<a asp-controller="Home" asp-action="AddCategory">New Category</a>

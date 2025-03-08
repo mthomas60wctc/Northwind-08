@@ -6,4 +6,25 @@ public class DataContext : DbContext
 
     public DbSet<Category> Categories { get; set; }
     public DbSet<Product> Products { get; set; }
+    
+    public void AddCategory(Category category)
+    {
+        this.Add(category);
+        this.SaveChanges();
+    }
+    public void DeleteCategory(Category category)
+    {
+        this.Remove(category);
+        this.SaveChanges();
+    }
+    public void AddProduct(Product product)
+    {
+        this.Add(product);
+        this.SaveChanges();
+    }
+    public void DeleteProduct(Product product)
+    {
+        this.Remove(product);
+        this.SaveChanges();
+    }
 }

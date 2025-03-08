@@ -1,0 +1,33 @@
+@model ProductViewModel
+
+<div class="bg-primary m-1 p-1 text-white">
+    <h4>@Model.category.CategoryName Details</h4>
+</div>
+
+@if (Model.Products.Count() == 0)
+{
+    <p>There are no products</p>
+}
+else
+{
+    <div class="list-group">
+        @foreach (Product product in Model.Products)
+        {
+            if (!product.Discontinued)
+            {
+                <a class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">@product.ProductName</h5>
+                        @* <a asp-controller="Home" asp-action="DeleteProduct" asp-route-id="@product.ProductId">Delete</a> *@
+                      <small class="mb-1">$@product.UnitPrice</small>
+                    </div>
+                    <small>@product.UnitsInStock remaining</small>
+                </a>
+            }
+        }
+    </div>
+}
+
+<hr />
+<a asp-controller="Home" asp-action="Index">Home</a> |
+<a asp-controller="Home" asp-action="AddProduct" asp-route-id="@Model.category.CategoryId">Add Product</a>
