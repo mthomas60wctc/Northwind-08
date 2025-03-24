@@ -1,0 +1,39 @@
+@model Customer
+
+<div class="d-flex justify-content-center">
+    <form class="card mt-5" style="width: 18rem;" method="post">
+      <div class="mb-3">
+        <label asp-for="@Model.CompanyName" for="inputCompanyName" class="form-label">Company Name</label>
+        <input asp-for="@Model.CompanyName" type="text" class="form-control" id="inputCompanyName">
+      </div>
+      <div class="mb-3">
+        <label asp-for="@Model.Address" for="inputAddress" class="form-label">Company Address</label>
+        <input asp-for="@Model.Address" type="text" class="form-control" id="inputAddress">
+      </div>
+      <div class="mb-3">
+        <label asp-for="@Model.City" for="inputCity" class="form-label">City</label>
+        <input asp-for="@Model.City" type="text" class="form-control" id="inputCity">
+      </div>
+      <div class="mb-3">
+        <label asp-for="@Model.Region" for="inputRegion" class="form-label">Region</label>
+        <input asp-for="@Model.Region" type="text" class="form-control" id="inputRegion">
+      </div>
+      <div class="mb-3">
+        <label asp-for="@Model.PostalCode" for="inputPostalCode" class="form-label">Postal Code</label>
+        <input asp-for="@Model.PostalCode" type="text" class="form-control" id="inputPostalCode">
+      </div>
+      <div class="mb-3">
+        <label asp-for="@Model.Country" for="inputCountry" class="form-label">Country</label>
+        <input asp-for="@Model.Country" type="text" class="form-control" id="inputCountry">
+      </div>
+      <div class="mb-3">
+        <label asp-for="@Model.Phone" for="inputPhone" class="form-label">Phone</label>
+        <input asp-for="@Model.Phone" type="phone" class="form-control" id="inputPhone">
+      </div>
+      <div class="mb-3">
+        <label asp-for="@Model.Fax" for="inputFax" class="form-label">Fax</label>
+        <input asp-for="@Model.Fax" type="phone" class="form-control" id="inputFax"  data-mdb-input-mask-init data-mdb-input-mask="+48 999-999-999">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

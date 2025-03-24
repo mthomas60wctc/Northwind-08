@@ -1,0 +1,27 @@
+@model IEnumerable<Discount>
+
+<div class="bg-primary m-1 p-1 text-white">
+    <h4>Current Discounts</h4>
+</div>
+@if (Model.Count() == 0)
+{
+    <p>There are no discounts currently available.</p>
+}
+else
+{
+    <div class="list-group">
+        @foreach (Discount discount in Model)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">@(String.Format("{0:0.##}", discount.DiscountPercent * 100) + "% off " + discount.Product.ProductName)</div>
+                    @discount.Description
+                    <br>
+                    <small>@("Valid: " + discount.StartTime.ToString("MM/dd/yyyy") + " to " + discount.EndTime.ToString("MM/dd/yyyy"))</small>
+                </div>
+                <span class="badge bg-primary rounded-pill">@discount.Code</span>
+            </li>
+        }
+    </div>
+}
+<hr />

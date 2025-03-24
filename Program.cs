@@ -12,6 +12,7 @@ builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(confi
 var app = builder.Build();
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 app.UseRouting();
 
 app.MapControllerRoute(

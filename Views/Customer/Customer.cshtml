@@ -1,0 +1,27 @@
+@model IEnumerable<Customer>
+
+<div class="bg-primary m-1 p-1 text-white">
+    <h4>Customers</h4>
+</div>
+@if (Model.Count() == 0)
+{
+    <p>There are no customers currently listed...hey, how did you get here?</p>
+}
+else
+{
+    <div class="list-group">
+        @foreach (Customer customer in Model)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">@customer.CompanyName</div>
+                    @customer.Country
+                    <br>
+                    <small>@customer.City</small>
+                </div>
+                <span class="badge bg-primary rounded-pill">@customer.Phone</span>
+            </li>
+        }
+    </div>
+}
+<hr />

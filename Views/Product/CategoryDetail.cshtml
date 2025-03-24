@@ -19,7 +19,7 @@ else
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">@product.ProductName</h5>
                         @* <a asp-controller="Home" asp-action="DeleteProduct" asp-route-id="@product.ProductId">Delete</a> *@
-                      <small class="mb-1">$@product.UnitPrice</small>
+                      <small class="mb-1">@(product.UnitPrice.ToString("c"))</small>
                     </div>
                     <small>@product.UnitsInStock remaining</small>
                 </a>
